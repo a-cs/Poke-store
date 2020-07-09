@@ -1,1 +1,0 @@
-{"version":3,"sources":["Store.css"],"names":[],"mappings":"AAAA,MACI,YAAa,CACb,cACJ,CAEA,SACA,YACA","file":"main.39b21f15.chunk.css","sourcesContent":[".Card{\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n}\r\n\r\n.Pokemon{\r\npadding: 20px;\r\n}\r\n"]}
