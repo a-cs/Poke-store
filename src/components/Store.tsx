@@ -22,7 +22,10 @@ const Store: React.FC = () => {
 
     const [pokemon,setPokemon] = useState([])
 
+    useEffect(()=>{
+        getPokemonList()
 
+    },[])
 
     async function getPokemonList()  {
         const response = await api.get(url)
@@ -49,7 +52,7 @@ const Store: React.FC = () => {
         console.log(`comprou ${name}`)
     }
 
-    console.log(pokemon)
+
     return (
         <>
         <h1>STORE</h1>
@@ -57,7 +60,7 @@ const Store: React.FC = () => {
         {pokemon.map((pokemon:PokemonInfo) =>
         <div className="Pokemon" key={pokemon.name}>
 
-            <img src={pokemon.front_default}></img>
+            <img src={pokemon.front_default} alt={pokemon.name}></img>
             <h2 >{pokemon.id}</h2>
             <h2 >{pokemon.name}</h2>
             <button onClick={()=>buy(pokemon.name)}>Comprar!</button>
