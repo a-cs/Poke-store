@@ -1,0 +1,8 @@
+.Card{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.Pokemon{
+padding: 20px;
+}
