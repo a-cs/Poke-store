@@ -1,0 +1,36 @@
+.Card{
+    display: flex;
+    flex-wrap: wrap;
+    border-right:  5px black solid;
+}
+
+.Pokemon{
+padding: 20px;
+}
+
+.Loading img{
+    /* display: flex;
+    flex-wrap: nowrap;
+
+    justify-content: center; */
+
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        position: relative;
+        top: 50%;
+        /* transform: translateY(+150%); */
+        width: 20%;
+
+}
+
+.btn{
+    display:flex;
+    justify-content: center;
+}
+
+.btn button{
+    height: 50px;
+    /* margin-left: auto;
+    margin-right: auto; */
+}
