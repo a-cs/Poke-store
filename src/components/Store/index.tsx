@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './Store.css';
 import loadingGif from '../../assets/loading.gif';
+import Header from '../Header';
 
 import api from '../../services/api';
 
@@ -13,6 +14,7 @@ interface PokemonInfo {
   name: string;
   front_default: string;
   id: string;
+  types: string;
 }
 
 const Store: React.FC = () => {
@@ -28,9 +30,10 @@ const Store: React.FC = () => {
       name,
       sprites: { front_default },
       id,
+      types,
     } = newResponse.data;
 
-    return { name, front_default, id };
+    return { name, front_default, id, types };
   }
   useEffect(() => {
     async function getPokemonList(): Promise<void> {
@@ -76,16 +79,17 @@ const Store: React.FC = () => {
 
   function buy(name: string): any {
     console.log(`comprou ${name}`);
+    console.log(name);
   }
 
   return (
     <>
-      <h1>STORE</h1>
+      <Header />
       <div>
         {loading ? (
           <div className="Loading">
             <img src={loadingGif} alt="Loading..." />
-            <h1 style={{ textAlign: 'center' }}>Loading</h1>
+            <h1 style={{ textAlign: 'center' }}>Loading...</h1>
           </div>
         ) : (
           <>
@@ -98,12 +102,25 @@ const Store: React.FC = () => {
               </button>
             </div>
             <div className="Card">
-              {pokemonObject.map((pokemon: PokemonInfo) => (
+              {pokemonObject.map((pokemon: any) => (
                 <div className="Pokemon" key={pokemon.name}>
                   <img src={pokemon.front_default} alt={pokemon.name} />
-                  <h2>{pokemon.id}</h2>
-                  <h2>{pokemon.name}</h2>
-                  <button onClick={() => buy(pokemon.name)} type="button">
+                  <div className="PokemonTitle">
+                    <p>#{pokemon.id}</p>
+                    <p>-</p>
+                    <p>{pokemon.name}</p>
+                  </div>
+                  <div className="PokemonTypes">
+                    {pokemon.types.map((data: any) => (
+                      <>
+                        <p key={`${pokemon.name}${data.type.name}`}>
+                          {data.type.name}
+                        </p>
+                      </>
+                    ))}
+                  </div>
+
+                  <button onClick={() => buy(pokemon.types)} type="button">
                     Comprar!
                   </button>
                 </div>

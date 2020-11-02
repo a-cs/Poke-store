@@ -8,10 +8,9 @@ import './App.css';
 const App: React.FC = () => {
   return (
     <>
-      <Header />
       <div className="Components">
         <Store />
-        <Cart />
+        {/* <Cart /> */}
       </div>
       <Footer />
     </>
