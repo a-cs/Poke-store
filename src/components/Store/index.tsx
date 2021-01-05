@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './Store.css';
 import loadingGif from '../../assets/loading.gif';
 import Header from '../Header';
+import Cart from '../Cart';
 
 import api from '../../services/api';
 
@@ -92,50 +93,54 @@ const Store: React.FC = () => {
             <h1 style={{ textAlign: 'center' }}>Loading...</h1>
           </div>
         ) : (
-          <>
-            <div className="btn">
-              <button onClick={prev} type="button">
-                Prev
-              </button>
-              <button onClick={next} type="button">
-                Next
-              </button>
-            </div>
-            <div className="Card">
-              {pokemonObject.map((pokemon: any) => (
-                <div className="Pokemon" key={pokemon.name}>
-                  <img src={pokemon.front_default} alt={pokemon.name} />
-                  <div className="PokemonTitle">
-                    <p>#{pokemon.id}</p>
-                    <p>-</p>
-                    <p>{pokemon.name}</p>
-                  </div>
-                  <div className="PokemonTypes">
-                    {pokemon.types.map((data: any) => (
-                      <>
-                        <p key={`${pokemon.name}${data.type.name}`}>
-                          {data.type.name}
-                        </p>
-                      </>
-                    ))}
-                  </div>
+          <div className="Components">
+            <div className="Store">
+              <div className="btn">
+                <button onClick={prev} type="button">
+                  Prev
+                </button>
+                <button onClick={next} type="button">
+                  Next
+                </button>
+              </div>
+              <div className="Card">
+                {pokemonObject.map((pokemon: any) => (
+                  <div className="Pokemon" key={pokemon.name}>
+                    <img src={pokemon.front_default} alt={pokemon.name} />
+                    <div className="PokemonTitle">
+                      <p>#{pokemon.id}</p>
+                      <p>-</p>
+                      <p>{pokemon.name}</p>
+                    </div>
+                    <div className="PokemonTypes">
+                      {pokemon.types.map((data: any) => (
+                        <>
+                          <p key={`${pokemon.name}${data.type.name}`}>
+                            {data.type.name}
+                          </p>
+                        </>
+                      ))}
+                    </div>
 
-                  <button onClick={() => buy(pokemon.types)} type="button">
-                    Comprar!
-                  </button>
-                </div>
-              ))}
+                    <button onClick={() => buy(pokemon.types)} type="button">
+                      Comprar!
+                    </button>
+                  </div>
+                ))}
+              </div>
+
+              <div className="btn">
+                <button onClick={prev} type="button">
+                  Prev
+                </button>
+                <button onClick={next} type="button">
+                  Next
+                </button>
+              </div>
             </div>
 
-            <div className="btn">
-              <button onClick={prev} type="button">
-                Prev
-              </button>
-              <button onClick={next} type="button">
-                Next
-              </button>
-            </div>
-          </>
+            <Cart />
+          </div>
         )}
       </div>
     </>

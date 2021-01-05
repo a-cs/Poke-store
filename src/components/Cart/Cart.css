@@ -1,0 +1,56 @@
+.Cart {
+  margin-top: 120px;
+  margin-left: 10px;
+  display: flex;
+  flex-direction: column;
+
+}
+
+.CartCard {
+  display: flex;
+  flex-direction: row;
+  border: 2px lightgrey solid;
+  border-radius: 5px;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+.CartPokemon{
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+  align-items: center;
+}
+
+.CartPokemon img {
+  height: 150px;
+}
+
+.CartPokemonText{
+  display: flex;
+  flex-direction: row;
+}
+
+.CartPokemonText p {
+  margin: 0 2px 5px;
+  font-size: 20px;
+  font-weight: bold
+}
+
+.Qty p{
+font-weight: 700;
+font-size: 30px;
+}
+
+.Buttons {
+  margin: 20px;
+  justify-items: center;
+}
+
+.Buttons button{
+  margin: 5px;
+  font-size: 30px;
+  background-color: crimson;
+  color: whitesmoke;
+
+}
